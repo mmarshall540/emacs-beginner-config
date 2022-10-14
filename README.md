@@ -1,17 +1,19 @@
+# emacs-beginner-config
+
 This is intended as a minimal configuration for Emacs beginners.
 The idea is that because it is small, it can easily be built on and
 learned from.  Yet it should provide a more pleasing out-of-the-box
 experience than starting with no configuration.  Suggestions follow.
 
-This configuration opens this file and any other Emacs Lisp file
-with `outline-minor-mode` enabled.  This makes it possible to view
-the headings as a list and more easily browse their contents.  To
-collapse all headings into a list, enter "C-c @ C-o" To open a
+This configuration will open the "init.el" file and any other Emacs
+Lisp file with `outline-minor-mode` enabled.  This makes it possible
+to view the headings as a list and more easily browse their contents.
+To collapse all headings into a list, enter "C-c @ C-o".  To open a
 heading and view its contents, click the arrow to the right of the
-heading, or place the cursor on the heading and then enter "C-c @
-C-s".
+heading using your mouse, or place the cursor on the heading and then
+enter "C-c @ C-s".
 
-A minimal set of third-party packages will be installed on
+A small collection of external packages will be installed on
 first-run.  They are:
 
 * dumb-jump - Jump to the definition of the symbol at point by
@@ -39,6 +41,10 @@ first-run.  They are:
   This package allows the built-in Speedbar to act as a sidebar
   window, rather than a separate frame.
 
+* vertico - A more polished completion system, which automatically
+  pops-up without delay and updates the list of completion candidates
+  as you type.
+
 * which-key - Emacs has a lot of keybindings.  And a lot of commands
   require a sequence of keys, not just one.  This package
   automatically shows you the available keybindings in a pop-up
@@ -54,7 +60,7 @@ There are other intended-to-be-helpful preconfigured settings, such
 as:
 
 * Indentation highlighting in Python files using the built-in
-`whitespace-mode`
+  `whitespace-mode`
 
 * Linefeeds (aka pagebreaks) displayed as horizontal lines, rather
   than the unslightly "^L" character
@@ -64,44 +70,26 @@ as:
   `just-one-space` ("M-SPC"), and `ibuffer` instead of
   `list-buffers` ("C-x C-b")
 
-* The built-in completions system has been configured with sensible™
-  defaults.
-  
-You can access the \*Completions\* buffer by pressing "TAB" or
-"C-n" in the minibuffer.  This may be slow if you do it without
-narrowing the number of potential completions first.  For example
-when you use "C-h v" to get the description of a variable, if you
-press "TAB" without entering any text, Emacs will have to compile
-a list of all variables it knows, which could take a few seconds.
+The configuration sections of packages that are not installed will be
+skipped.  And settings that have been customized (via the "Easy
+Customization" interface or one of the `customize` commands) will
+override settings found in the main init file.
 
-But if that proves to be an annoyance, feel free to "package-install
-RET vertico RET".
-
-The Vertico, Consult, Embark, Marginalia, Lin, and Corfu packages are
-recommended for installation, and all have been pre-configured.
-
-Diff-hl is also recommended for use with version-control, whether
-the built-in `vc-mode` or the external Magit package.
-
-The Eglot package is also recommended, but it must be used with
-any of several "language server" programs that correspond to the
-programming language you are writing in.  The language server
-runs on your computer, but you must install it separately, using
-your operating system's package manager.
+The Eglot package would have been included by default, but it must be
+used with a "language server" program that corresponds to the
+programming language you are writing in.  The language server runs on
+your computer, but you must install it separately, using your
+operating system's package manager.
 
 The author prefers to disable certain user-interface features such as
 `scroll-bar-mode` and `tool-bar-mode` but will not assume that others
-share the same preference.  However, you can toggle those features
-(and many others) from the Options menu in the "Show/Hide" submenu.
+share that preference.  You can toggle those features (and many
+others) from the Options menu within the "Show/Hide" submenu.
+
+Changes to the defaults made via `customize` are saved to a separate
+"my-custom.el" file, which is created on first run.
 
 The idea is to provide an attractive starting point for your Emacs
 configuration in a single init file that stays relatively close to
-"vanilla" Emacs, while also including some bells and whistles to keep
-it interesting.
-
-Of course, you can (and should) change the configuration as you see
-fit.  And you can (and should) experiment with different settings.
-
-The configuration sections of packages that have been deleted
-are skipped.  Settings that have been customized will override
-settings found in the main init file.
+so-called "vanilla" Emacs.  Of course, you can (and should) change the
+configuration as you see fit.
