@@ -121,7 +121,7 @@
     (custom-set-variables
      '(after-init-hook
        '( auto-insert-mode delete-selection-mode electric-pair-mode
-	  global-auto-revert-mode recentf-mode repeat-mode save-place-mode
+	  global-auto-revert-mode recentf-mode save-place-mode
 	  turn-on-auto-fill winner-mode )
        t)
      '(after-save-hook '(executable-make-buffer-file-executable-if-script-p))
@@ -647,6 +647,11 @@ Version 2018-08-30"
 (my-if-pkg rainbow-delimiters
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
+
+;;; Repeat     (built-in)
+
+(when (version< "28" emacs-version)
+  (add-hook 'after-init-hook 'repeat-mode))
 
 ;;; Simple     (built-in)
 
