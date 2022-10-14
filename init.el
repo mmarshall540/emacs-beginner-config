@@ -256,7 +256,9 @@ Version 2018-08-30"
 ;;; !Package installation
 
 ;; Install any selected packages that aren't yet installed.
-(package-install-selected-packages 'noconfirm)
+(if (version< 28 emacs-version)
+    (package-install-selected-packages 'noconfirm)
+  (package-install-selected-packages))
 
 
 ;;; Consult
