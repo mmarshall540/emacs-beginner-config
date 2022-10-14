@@ -256,9 +256,15 @@ Version 2018-08-30"
 ;;; !Package installation
 
 ;; Install any selected packages that aren't yet installed.
-(if (version< 28 emacs-version)
+(if (version< "28" emacs-version)
     (package-install-selected-packages 'noconfirm)
-  (package-install-selected-packages))
+  (progn
+    (when
+      (not
+       (file-exists-p
+	(expand-file-name "elpa/archives" user-emacs-directory)))
+      (package-refresh-contents))
+    (package-install-selected-packages)))
 
 
 ;;; Consult
