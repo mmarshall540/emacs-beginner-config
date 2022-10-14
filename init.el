@@ -1,4 +1,4 @@
-;;; init.el --- an *actually* minimalist Emacs configuration  -*- lexical-binding: t; -*-
+;;; init.el --- an Emacs configuration for beginners -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2022  Martin Marshall
 
